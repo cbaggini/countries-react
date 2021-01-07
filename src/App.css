@@ -19,6 +19,17 @@ h3 {
   text-align: left;
 }
 
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2rem;
+}
+
+input {
+  border: none;
+  margin-left: 0.5rem;
+}
+
 .countriesContainer {
   display: flex;
   flex-wrap: wrap;
