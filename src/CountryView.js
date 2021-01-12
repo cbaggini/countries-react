@@ -4,7 +4,7 @@ import countries from './data/countriesAll.json';
 import CountryMain from './CountryMain';
 import SearchBar from './SearchBar';
 
-const CountryView = () => {
+const CountryView = ({isLight}) => {
 	const [filteredCountries, setFilteredCountries] = useState(countries);
 	const regions = [...new Set(countries.map(el => el.region).filter(el => el.length > 1))];
 	const [selectedRegions, setSelectedRegions] = useState(regions);
@@ -24,10 +24,10 @@ const CountryView = () => {
 
 	return (
 		<>
-		<SearchBar filterCountries={filterCountries} regions={regions} setSelectedRegions={setSelectedRegions} search={search} setSearch={setSearch} setFilteredCountries={setFilteredCountries}/>
+		<SearchBar isLight={isLight} filterCountries={filterCountries} regions={regions} setSelectedRegions={setSelectedRegions} search={search} setFilteredCountries={setFilteredCountries}/>
 		<section className="countriesContainer">
 			{filteredCountries.map((country) => {
-				return (<CountryMain key={country.alpha3Code} {... country} />)
+				return (<CountryMain key={country.alpha3Code} {... country} isLight={isLight}/>)
 			})}
 		</section>
 		</>

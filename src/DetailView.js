@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import countries from './data/countriesAll.json';
 
-const DetailView = () => {
+const DetailView = ({isLight}) => {
 	const [country, setCountry] = useState('');
 	const { id } = useParams();
 
@@ -14,8 +14,8 @@ const DetailView = () => {
 
 	return (
 		<>
-		<Link to='/' className="backButton">
-			<button>&larr; &nbsp; Back</button>
+		<Link to='/' >
+			<button className={isLight ? "backButton" : "darkBackButton"}>&larr; &nbsp; Back</button>
 		</Link>
 		{country && 
 			<section className="detailMain">
@@ -40,7 +40,7 @@ const DetailView = () => {
 				</div>
 				<p className="borders">
 					<p><strong>Border countries: </strong></p>
-					{country.borders.map(el => <Link to={`/country/${countries.find((country) => country.alpha3Code === el).alpha3Code}`}><p className="bordering">{countries.find((country) => country.alpha3Code === el).name}</p></Link>)}
+					{country.borders.map(el => <Link key={countries.find((country) => country.alpha3Code === el).alpha3Code} to={`/country/${countries.find((country) => country.alpha3Code === el).alpha3Code}`}><p className="bordering">{countries.find((country) => country.alpha3Code === el).name}</p></Link>)}
 				</p>
 			</article>
 			</section>

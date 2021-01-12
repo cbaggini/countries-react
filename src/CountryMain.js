@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CountryMain = (props) => {
-	const {name, population, region, capital, flag, alpha3Code} = props;
+	const {name, population, region, capital, flag, alpha3Code, isLight} = props;
 	return (
-		<article className="countryMain">
+		<article className={isLight ? "countryMain" : "countryMainDark"}>
 			<Link to={`/country/${alpha3Code}`}>
 			<figure className="mainFigure">
 				<img className="mainFlag" src={flag} alt={name}></img>
