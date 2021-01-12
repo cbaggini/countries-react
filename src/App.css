@@ -13,6 +13,13 @@ h3 {
   font-weight: 600;
 }
 
+a,
+a:hover,
+a > p {
+  text-decoration: none;
+  color: #111517;
+}
+
 .title {
   font-size: 2rem;
   font-weight: 800;
@@ -21,8 +28,13 @@ h3 {
 
 .filters {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin: 2rem;
+}
+
+.search {
+  display: flex;
+  justify-content: flex-start;
 }
 
 input {
@@ -37,8 +49,9 @@ input {
 
 .countryMain {
   margin: 2rem;
-  border-radius: 200px;
+  border-radius: 4px;
   font-size: 14px;
+  overflow: hidden;
 }
 
 .mainFlag {
@@ -57,4 +70,55 @@ input {
 .mainInfo {
   text-align: left;
   padding: 1.5rem;
+}
+
+.backButton {
+  display: flex;
+  margin: 3rem;
+}
+
+.detailMain {
+  display: flex;
+}
+
+.detailContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5rem;
+}
+
+.borders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 5rem;
+}
+
+.bordering {
+  margin-left: 1rem;
+}
+
+.detailFlag {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.detailFigure {
+  width: 500px;
+  height: 300px;
+  margin: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .detailMain,
+  .detailContainer {
+    flex-direction: column;
+  }
+  .detailFigure {
+    width: 250px;
+    height: 170px;
+    margin: 3rem;
+  }
 }
