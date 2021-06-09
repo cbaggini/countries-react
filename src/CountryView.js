@@ -8,22 +8,15 @@ const CountryView = ({ isLight }) => {
   const regions = [
     ...new Set(countries.map((el) => el.region).filter((el) => el.length > 1)),
   ];
-  const [selectedRegions, setSelectedRegions] = useState("All");
+  const [selectedRegions, setSelectedRegions] = useState("");
   const [search, setSearch] = useState("");
 
   const filteredCountries = countries.filter((country) => {
-    if (selectedRegions === "All") {
-      return (
-        country.name.toLowerCase().includes(search) ||
-        country.capital.toLowerCase().includes(search)
-      );
-    } else {
-      return (
-        (country.name.toLowerCase().includes(search) ||
-          country.capital.toLowerCase().includes(search)) &&
-        selectedRegions.includes(country.region)
-      );
-    }
+    return (
+      (country.name.toLowerCase().includes(search) ||
+        country.capital.toLowerCase().includes(search)) &&
+      country.region.includes(selectedRegions)
+    );
   });
 
   return (
@@ -44,6 +37,11 @@ const CountryView = ({ isLight }) => {
             />
           );
         })}
+        {filteredCountries.length === 0 && (
+          <h3 className={isLight ? "countryMain" : "countryMainDark"}>
+            No results found for your search
+          </h3>
+        )}
       </section>
     </>
   );

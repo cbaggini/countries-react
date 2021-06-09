@@ -27,7 +27,7 @@ const SearchBar = ({ regions, setSelectedRegions, setSearch, isLight }) => {
         className={isLight ? "regions" : "regionsDark"}
         onChange={toggleRegions}
       >
-        <option value="All">Filter By Region</option>
+        <option value="">Filter By Region</option>
         {regions.map((el) => (
           <option key={el} value={el}>
             {el}
